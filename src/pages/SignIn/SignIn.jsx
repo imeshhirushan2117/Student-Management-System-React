@@ -5,8 +5,8 @@ import './styles.css'
 
 export default function SignIn() {
     return (
-        <div className='cadContainer'>
-            <div className='signIncad'>
+        <div className='signInContainer'>
+            <div className='signInCard'>
                 <Card />
             </div>
         </div>

@@ -22,7 +22,7 @@ const card = (
   <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14, textAlign: 'center', marginBottom: "20px" }} color="black" gutterBottom>
-        Well Come to Sign In Student Management System !
+       Sign Up !
       </Typography>
 
       <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
@@ -41,14 +41,15 @@ const card = (
         autoComplete="off"
       >
 
+        <MyTextInput label="Name" color="#27AE60" />
         <MyTextInput label="Email" color="#27AE60" />
         <MyTextInput label="Password" color="#27AE60" type='password' />
 
         <Box>
-          <MyButton name="Sign In" color='#27ae60' width='100%' />
+          <MyButton name="Sign Up" color='#27ae60' width='100%' />
           <br />
             <Box sx={{textAlign:'center'}}> 
-              <a href="">Sign Up</a>
+              <a href="">Sign In</a>
             </Box>
         </Box>
 
@@ -64,7 +65,7 @@ const card = (
   </React.Fragment>
 );
 
-export default function Cad() {
+export default function SignUpCad() {
   return (
     <div>
       <Box sx={{ minWidth: 275, marginTop: '90px', }}>
