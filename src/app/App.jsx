@@ -1,7 +1,9 @@
+import SignIn from "../pages/SignIn/SignIn"
+
 function App() {
   return (
     <>
-    <h1>HiruBro</h1>
+      <SignIn/>
     </>
   )
 }
