@@ -28,29 +28,36 @@ const bull = (
 const card = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 14 , textAlign:'center', marginBottom:"20px"}} color="black" gutterBottom>
+      <Typography sx={{ fontSize: 14, textAlign: 'center', marginBottom: "20px" }} color="black" gutterBottom>
         Well Come to Sign In Student Management System !
       </Typography>
 
-      <Box sx={{display:'flex',justifyContent:'center' ,marginBottom:"20px"}}>
-        <AccountCircleIcon sx={{fontSize:'100px',color:'#27ae60' , cursor:"pointer"}} />
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
+        <AccountCircleIcon sx={{ fontSize: '100px', color: '#27ae60', cursor: "pointer" }} />
       </Box>
 
       <Box
         component="form"
         sx={{
           '& > :not(style)': { m: 1, width: '50ch' },
-          flexDirection:'column',
-          display:'flex',
-          gap:'10px'
+          flexDirection: 'column',
+          display: 'flex',
+          gap: '10px'
         }}
         noValidate
         autoComplete="off"
       >
-        
-        <MyTextInput label="Email" color="#27AE60"/>
-        <MyTextInput label="Password" color="#27AE60" type='password'/>
-        <MyButton name="Sign In" color='#27ae60' width='100%'/>
+
+        <MyTextInput label="Email" color="#27AE60" />
+        <MyTextInput label="Password" color="#27AE60" type='password' />
+
+        <Box>
+          <MyButton name="Sign In" color='#27ae60' width='100%' />
+          <br />
+            <Box sx={{textAlign:'center'}}> 
+              <a href="">Sign Up</a>
+            </Box>
+        </Box>
 
       </Box>
 
@@ -59,7 +66,7 @@ const card = (
       </Typography>
     </CardContent>
     <CardActions>
-     
+
     </CardActions>
   </React.Fragment>
 );
@@ -67,8 +74,8 @@ const card = (
 export default function Cad() {
   return (
     <div>
-      <Box sx={{ minWidth: 275,marginTop:'90px',}}>
-        <Card sx={{ }} variant="outlined">{card}</Card>
+      <Box sx={{ minWidth: 275, marginTop: '90px', }}>
+        <Card sx={{}} variant="outlined">{card}</Card>
       </Box>
     </div>
   )
