@@ -6,7 +6,15 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import TextField from '@mui/material/TextField';
-import MyButton from '../../common/Button/MyButton'
+import MyButton from '../../common/Button/MyButton';
+import MyTextInput from '../../common/TextInput/MyTextInput';
+
+
+
+
+
+
+
 
 const bull = (
   <Box
@@ -21,7 +29,7 @@ const card = (
   <React.Fragment>
     <CardContent>
       <Typography sx={{ fontSize: 14 , textAlign:'center', marginBottom:"20px"}} color="black" gutterBottom>
-        Well Come to Student Management System !
+        Well Come to Sign In Student Management System !
       </Typography>
 
       <Box sx={{display:'flex',justifyContent:'center' ,marginBottom:"20px"}}>
@@ -38,13 +46,10 @@ const card = (
         }}
         noValidate
         autoComplete="off"
-
-        
       >
-        <TextField id="outlined-basic" label="Email" variant="outlined"  />
-        <TextField id="outlined-basic" label="Password" variant="outlined" />
-
-
+        
+        <MyTextInput label="Email" color="#27AE60"/>
+        <MyTextInput label="Password" color="#27AE60" type='password'/>
         <MyButton name="Sign In" color='#27ae60' width='100%'/>
 
       </Box>
@@ -63,7 +68,7 @@ export default function Cad() {
   return (
     <div>
       <Box sx={{ minWidth: 275,marginTop:'90px',}}>
-        <Card sx={{ backgroundColor:'#D3F9DF'}} variant="outlined">{card}</Card>
+        <Card sx={{ }} variant="outlined">{card}</Card>
       </Box>
     </div>
   )
