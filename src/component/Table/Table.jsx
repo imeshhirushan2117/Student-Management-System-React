@@ -6,6 +6,7 @@ export default function Table() {
   const rows = [
     { id: 1, firstName: 'Imesh', age: 24, address:'Panadura',contact:'0779201232' },
     { id: 2, firstName: 'Mishara', age: 20, address:'Matara',contact:'0724569812' },
+ 
    
   ];
 
@@ -18,7 +19,7 @@ export default function Table() {
   ];
 
   return (
-    <div style={{ height: 400, width: '100%' ,background:'#C4F7D4'}}>
+    <div style={{ height: 'auto', width: '100%' ,background:'#C4F7D4'}}>
       <DataGrid
         rows={rows}
         columns={columns}
