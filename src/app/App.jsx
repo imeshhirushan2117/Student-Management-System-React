@@ -114,9 +114,9 @@ function App() {
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex'}}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" open={open} sx={{bgcolor:'#27AE60'}}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -127,11 +127,13 @@ function App() {
                 marginRight: 5,
                 ...(open && { display: 'none' }),
               }}
+
+              
             >
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
-              Student Management System
+              Student Management System !
             </Typography>
           </Toolbar>
         </AppBar>
@@ -190,8 +192,8 @@ function App() {
       </Box>
 
 
-      {/* <SignIn/> */}
-      {/* <SignUp/> */}
+   {/*    <SignIn/>
+      <SignUp/> */}
     </>
   )
 }
