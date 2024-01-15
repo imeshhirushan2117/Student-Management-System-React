@@ -60,16 +60,15 @@ export default function SearchBar() {
     return (
 
             <Box sx={{ flexGrow: 1}} >
-                <AppBar position="static" sx={{ background:'#C4F7D4' }}>
+                <AppBar position="static" sx={{ background:'#7BED9F' }}>
                     <Toolbar>
                         <Search >
                             <SearchIconWrapper>
                                 <SearchIcon />
                             </SearchIconWrapper>
                             <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{ 'aria-label': 'search' }}
-                              
+                                placeholder="Search..."
+                                inputProps={{ 'aria-label': 'search' }} 
                             />
                         </Search>
                     </Toolbar>
