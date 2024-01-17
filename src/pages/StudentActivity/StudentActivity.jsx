@@ -1,24 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextInput from "../../common/TextInput/MyTextInput"
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import Button from '../../common/Button/MyButton'
-
+import TextField from '@mui/material/TextField';
 
 
 
 export default function StudentActivity() {
 
+
+  const [id, setId] = useState("");
+  const [name, setname] = useState("");
+  const [age, setAge] = useState("");
+  const [address, setAddress] = useState("");
+  const [contact, setContact] = useState("");
+
+
+
+  const save = (val) => {
+    console.log("Save");
+    // onchange(val.target.val)
+    console.log(val.target.value);
+  }
+
+  const update = () => {
+    console.log("Update");
+  }
+
+  const deleted = () => {
+    console.log("Deleted");
+  }
+
+  const clear = () => {
+    console.log("Clear");
+  }
   return (
-    <>
-
-
+    < >
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid xs={6} md={6} >
-            <TextInput label="Student Id" color="#27AE60" />
+
+            <TextInput label="Student Id"
+              color="#27AE60"
+
+              change={(val) => setId(val.target.value)}
+            />
+           
           </Grid>
 
           <Grid xs={6} md={6}>
@@ -43,19 +71,19 @@ export default function StudentActivity() {
         <Grid container spacing={2}>
 
           <Grid xs={6} md={6} marginBottom='15px'>
-            <Button name="Save" color='#16a085' width='90%' />
+            <Button name="Save" color='#16a085' width='90%' click={() => { save() }} />
           </Grid>
 
           <Grid xs={6} md={6}>
-            <Button name="Update" color='#f39c12' width='90%' />
+            <Button name="Update" color='#f39c12' width='90%' click={() => { update() }} />
           </Grid>
 
           <Grid xs={6} md={6}>
-            <Button name="Deleted" color='#c0392b' width='90%' />
+            <Button name="Deleted" color='#c0392b' width='90%' click={() => { deleted() }} />
           </Grid>
 
           <Grid xs={6} md={6}>
-            <Button name="Clear" color='#2c3e50' width='90%' />
+            <Button name="Clear" color='#2c3e50' width='90%' click={() => { clear() }} />
           </Grid>
 
         </Grid>

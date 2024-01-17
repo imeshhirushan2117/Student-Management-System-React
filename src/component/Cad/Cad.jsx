@@ -9,66 +9,68 @@ import TextField from '@mui/material/TextField';
 import MyButton from '../../common/Button/MyButton';
 import MyTextInput from '../../common/TextInput/MyTextInput';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
 
-const card = (
-  <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontSize: 14, textAlign: 'center', marginBottom: "20px" }} color="black" gutterBottom>
-        Well Come to Sign In Student Management System !
-      </Typography>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
-        <AccountCircleIcon sx={{ fontSize: '100px', color: '#27ae60', cursor: "pointer" }} />
-      </Box>
+export default function Cad({signIn , signUp}) {
 
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '50ch' },
-          flexDirection: 'column',
-          display: 'flex',
-          gap: '10px'
-        }}
-        noValidate
-        autoComplete="off"
-      >
+  const bull = (
+    <Box
+      component="span"
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+      •
+    </Box>
+  );
 
-        <MyTextInput label="Email" color="#27AE60" />
-        <MyTextInput label="Password" color="#27AE60" type='password' />
-
-        <Box>
-          <MyButton name="Sign In" color='#27ae60' width='100%' />
-          <br />
-            <Box sx={{textAlign:'center'}}> 
-              <a href="">Sign Up</a>
-            </Box>
+  const Card = () => (
+    <React.Fragment>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, textAlign: 'center', marginBottom: "20px" }} color="black" gutterBottom>
+          Well Come to Sign In Student Management System !
+        </Typography>
+  
+        <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: "20px" }}>
+          <AccountCircleIcon sx={{ fontSize: '100px', color: '#27ae60', cursor: "pointer" }} />
         </Box>
-
-      </Box>
-
-      <Typography variant="body2">
-
-      </Typography>
-    </CardContent>
-    <CardActions>
-
-    </CardActions>
-  </React.Fragment>
-);
-
-export default function Cad() {
+  
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '50ch' },
+            flexDirection: 'column',
+            display: 'flex',
+            gap: '10px'
+          }}
+          noValidate
+          autoComplete="off"
+        >
+  
+          <MyTextInput label="Email" color="#27AE60" />
+          <MyTextInput label="Password" color="#27AE60" type='password' />
+  
+          <Box>
+            <MyButton name="Sign In" color='#27ae60' width='100%' onClick={()=> signIn()}/>
+            <br />
+              <Box sx={{textAlign:'center'}}> 
+                <a style={{textDecoration: 'underline', color:'#551A8B' ,fontSize:'15px' , cursor:'pointer'}} onClick={() => signUp()} >SignUp</a>
+              </Box>
+          </Box>
+  
+        </Box>
+  
+        <Typography variant="body2">
+  
+        </Typography>
+      </CardContent>
+      <CardActions>
+  
+      </CardActions>
+    </React.Fragment>
+  );
   return (
     <div>
       <Box sx={{ minWidth: 275, marginTop: '90px', }}>
-        <Card sx={{}} variant="outlined">{card}</Card>
+        <Card/>
       </Box>
     </div>
   )

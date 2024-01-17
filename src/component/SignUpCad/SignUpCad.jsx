@@ -46,10 +46,10 @@ const card = (
         <MyTextInput label="Password" color="#27AE60" type='password' />
 
         <Box>
-          <MyButton name="Sign Up" color='#27ae60' width='100%' />
+          <MyButton name="Sign Up" color='#27ae60' width='100%'   onClick={()=>{signUpAction()}} />
           <br />
             <Box sx={{textAlign:'center'}}> 
-              <a href="">Sign In</a>
+              <a style={{textDecoration: 'underline', color:'#551A8B' ,fontSize:'15px' , cursor:'pointer'}}onClick={()=>{back()}}>Sign In</a>
             </Box>
         </Box>
 
@@ -64,6 +64,16 @@ const card = (
     </CardActions>
   </React.Fragment>
 );
+
+const signUpAction = () => {
+ console.log("signUpAction");
+}
+
+
+const back = () => {
+  const url = '/'
+  window.location.href= url;
+}
 
 export default function SignUpCad() {
   return (

@@ -19,7 +19,6 @@ const routes = [
         path: "/studentActivity",
         component: <StudentActivity />,
         icon: <BoyIcon />
-
     }
 ]
 

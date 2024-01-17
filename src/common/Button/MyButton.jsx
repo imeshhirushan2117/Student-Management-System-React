@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-export default function MyButton({ name, color ,width }) {
+export default function MyButton({ onClick, name, color ,width}) {
 
     //     <Button
     //   onClick={() => {
@@ -24,7 +24,7 @@ export default function MyButton({ name, color ,width }) {
     
     return (
         <Stack direction="row" spacing={2} >
-        <ColorButton variant="contained">{name}</ColorButton>
+        <ColorButton variant="contained"  onClick={()=> onClick()} >{name}</ColorButton>
       </Stack>
     );
 }

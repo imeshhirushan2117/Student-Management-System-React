@@ -5,7 +5,8 @@ export default function Table() {
 
   const rows = [
     { id: 1, firstName: 'Imesh', age: 24, address:'Panadura',contact:'0779201232' },
-    { id: 2, firstName: 'Mishara', age: 20, address:'Matara',contact:'0724569812' },
+    // { id: 2, firstName: 'Mishara', age: 20, address:'Matara',contact:'0724569812' },
+    { id: 2, firstName: 'Hirushan', age: 20, address:'Horana',contact:'0724569812' },
  
    
   ];

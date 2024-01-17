@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 
 
 
-export default function MyTextInput({ color, label , type}) {
+export default function MyTextInput({ color, label , type, change}) {
 
   const CssTextField = styled(TextField)({
     '& label.Mui-focused': {
@@ -36,7 +36,6 @@ export default function MyTextInput({ color, label , type}) {
   });
 
 
-
   return (
     <Box
       component="form"
@@ -47,7 +46,7 @@ export default function MyTextInput({ color, label , type}) {
         gap: 2,
       }}
     >
-      <CssTextField label={label} id="custom-css-outlined-input" type={type}/>
+      <CssTextField label={label} id="custom-css-outlined-input"  onChange={change}/>
 
     </Box>
   );
