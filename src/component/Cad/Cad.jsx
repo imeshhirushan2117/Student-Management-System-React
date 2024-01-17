@@ -16,7 +16,7 @@ export default function Cad({signIn , signUp}) {
   const bull = (
     <Box
       component="span"
-      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)'}}
     >
       •
     </Box>
@@ -39,7 +39,7 @@ export default function Cad({signIn , signUp}) {
             '& > :not(style)': { m: 1, width: '50ch' },
             flexDirection: 'column',
             display: 'flex',
-            gap: '10px'
+            gap: '10px',
           }}
           noValidate
           autoComplete="off"
@@ -68,8 +68,11 @@ export default function Cad({signIn , signUp}) {
     </React.Fragment>
   );
   return (
+
+
+
     <div>
-      <Box sx={{ minWidth: 275, marginTop: '90px', }}>
+      <Box sx={{ minWidth: 275, marginTop: '40px', border :'#E0E0E0 solid 1px'}}>
         <Card/>
       </Box>
     </div>

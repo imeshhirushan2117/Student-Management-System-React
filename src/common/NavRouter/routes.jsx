@@ -10,7 +10,6 @@ const routes = [
         path: "/studentView",
         component: <StudentView />,
         icon: <TableViewIcon />
-
     },
 
     {

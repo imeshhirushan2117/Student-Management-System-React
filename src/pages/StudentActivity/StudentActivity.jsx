@@ -4,12 +4,10 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Button from '../../common/Button/MyButton'
 import TextField from '@mui/material/TextField';
-
+import { useNavigate } from 'react-router-dom';
 
 
 export default function StudentActivity() {
-
-
   const [id, setId] = useState("");
   const [name, setname] = useState("");
   const [age, setAge] = useState("");
@@ -21,7 +19,7 @@ export default function StudentActivity() {
   const save = (val) => {
     console.log("Save");
     // onchange(val.target.val)
-    console.log(val.target.value);
+ 
   }
 
   const update = () => {
@@ -36,6 +34,7 @@ export default function StudentActivity() {
     console.log("Clear");
   }
   return (
+
     < >
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
@@ -71,15 +70,15 @@ export default function StudentActivity() {
         <Grid container spacing={2}>
 
           <Grid xs={6} md={6} marginBottom='15px'>
-            <Button name="Save" color='#16a085' width='90%' click={() => { save() }} />
+            <Button name="Save" color='#16a085' width='90%' onClick={() => { save() }} />
           </Grid>
 
           <Grid xs={6} md={6}>
-            <Button name="Update" color='#f39c12' width='90%' click={() => { update() }} />
+            <Button name="Update" color='#f39c12' width='90%' onClick={() => { update() }} />
           </Grid>
 
           <Grid xs={6} md={6}>
-            <Button name="Deleted" color='#c0392b' width='90%' click={() => { deleted() }} />
+            <Button name="Deleted" color='#c0392b' width='90%' onClick={() => { deleted() }} />
           </Grid>
 
           <Grid xs={6} md={6}>

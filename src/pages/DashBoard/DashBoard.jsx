@@ -16,13 +16,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
-// import SignIn from "../../pages/SignIn/SignIn";
-// import SignUp from "../../pages/SignUp/SignUp";
 import routes from "../../common/NavRouter/routes"
 import { Route, Routes, Link, Navigate } from 'react-router-dom';
+import StudentView from '../StudentView/StudentView';
+import Button from '../../common/Button/MyButton';
 
 export default function DashBoard() {
 
@@ -104,6 +101,11 @@ export default function DashBoard() {
     const handleDrawerClose = () => {
       setOpen(false);
     };
+
+    const logOut = () => {
+      localStorage.removeItem("hiruBro");
+      window.location.reload();
+    }
   
     const getRoute = (value) => 
     value.map((val) =>
@@ -133,6 +135,12 @@ export default function DashBoard() {
             <Typography variant="h6" noWrap component="div">
               Student Management System !
             </Typography>
+            {/* <Button name="Log out" color='#16a085' width='90%' onClick={() => {logOut()}} /> */}
+
+            <Box sx={{display:'flex' ,flexGrow:1,justifyContent:'end'}}>
+                <Button name="Log out" color='#16a085' width='100%' onClick={() => {logOut()}} />
+            </Box>
+
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -180,8 +188,8 @@ export default function DashBoard() {
 
           <Box>
             <Routes>
-              {/* <Route path={"*"}element={<Navigate to={'/studentView'} />} /> */}
               {getRoute(routes)}
+              <Route path={"*"}element={<Navigate to={'/studentView'} />} />
             </Routes>
           </Box>
 

@@ -9,6 +9,9 @@ import TextField from '@mui/material/TextField';
 import MyButton from '../../common/Button/MyButton';
 import MyTextInput from '../../common/TextInput/MyTextInput';
 
+export default function SignUpCad({back}) {
+
+  
 const bull = (
   <Box
     component="span"
@@ -70,15 +73,11 @@ const signUpAction = () => {
 }
 
 
-const back = () => {
-  const url = '/'
-  window.location.href= url;
-}
 
-export default function SignUpCad() {
+
   return (
     <div>
-      <Box sx={{ minWidth: 275, marginTop: '90px', }}>
+      <Box sx={{ minWidth: 275, marginTop: '10px', }}>
         <Card sx={{}} variant="outlined">{card}</Card>
       </Box>
     </div>
