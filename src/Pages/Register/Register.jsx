@@ -8,41 +8,45 @@ import { Box } from '@mui/material';
 import Button from '../../common/Button/Button';
 import TextFeeld from '../../common/TextField/TextField';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
   return (
-    <Box sx={{display:'flex', justifyContent:'center',marginTop:'200px'}}>
-    <Card>
+    <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '200px' }}>
+      <Card>
         <CardContent>
-            <Typography gutterBottom variant="h4" component="div" sx={{textAlign:'center'}}>
-                USER REGISTER
-            </Typography>
+          <Typography gutterBottom variant="h4" component="div" sx={{ textAlign: 'center' }}>
+            USER REGISTER
+          </Typography>
         </CardContent>
 
-        <Box sx={{textAlign:'center'}}>
-            <ManageAccountsIcon color="success" sx={{fontSize:'100px'}}/>
+        <Box sx={{ textAlign: 'center' }}>
+          <ManageAccountsIcon color="success" sx={{ fontSize: '100px' }} />
         </Box>
 
         <CardActions>
-        <TextFeeld lable={'Name'} width={'500px'}/>
+          <TextFeeld lable={'Name'} width={'500px'} />
         </CardActions>
 
         <CardActions>
-        <TextFeeld lable={'Email'} width={'500px'}/>
+          <TextFeeld lable={'Email'} width={'500px'} />
         </CardActions>
 
         <CardActions>
-        <TextFeeld type={'password'} lable={'Password'} width={'500px'}/>
+          <TextFeeld type={'password'} lable={'Password'} width={'500px'} />
         </CardActions>
 
-        <CardActions sx={{marginTop:'20px'}}>
-          <Button name={'Login'} color={'success'} width={'500px'}/>
+        <CardActions sx={{ marginTop: '20px' }}>
+          <Button name={'Login'} color={'success'} width={'500px'} />
         </CardActions>
-      
-      <Box sx={{textAlign:'center'  ,padding:'10px'}}>
-      <h4>LogIn</h4>
-      </Box>
-    </Card>
-</Box>
+
+        <Box sx={{ textAlign: 'center', padding: '15px' }}>
+          <Link to={'/login'}>
+            <h4>LogIn</h4>
+          </Link>
+
+        </Box>
+      </Card>
+    </Box>
   )
 }

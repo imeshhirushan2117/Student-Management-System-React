@@ -7,12 +7,33 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import Button from '../../common/Button/Button';
 import TextFeeld from '../../common/TextField/TextField';
-// import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'; 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {Link} from 'react-router-dom';
+import instance from '../../services/Axious'
+import { useState } from 'react';
+
+
 
 export default function Login() {
-    return (
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
 
+    const loginAction = () => {
+        instance.post('/login', {
+            email: email,
+            password: password
+          })
+          .then(function (response) {
+            // console.log(response.data.token);
+            localStorage.setItem('stmToken',response.data.token)
+            window.location.reload()
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+
+    return (
         <Box sx={{display:'flex', justifyContent:'center',marginTop:'200px'}}>
             <Card>
                 <CardContent>
@@ -26,19 +47,21 @@ export default function Login() {
                 </Box>
 
                 <CardActions>
-                <TextFeeld lable={'Email'} width={'500px'}/>
+                <TextFeeld lable={'Email'} width={'500px'} onChange={(val) => setEmail(val.target.value)}/>
                 </CardActions>
 
                 <CardActions>
-                <TextFeeld type={'password'} lable={'Password'} width={'500px'}/>
+                <TextFeeld type={'password'} lable={'Password'} width={'500px'} onChange={(val) => setPassword(val.target.value)} />
                 </CardActions>
 
                 <CardActions sx={{marginTop:'20px'}}>
-                  <Button name={'Login'} color={'success'} width={'500px'}/>
+                  <Button name={'Login'} color={'success'} width={'500px'} onClick={loginAction}/>
                 </CardActions>
               
               <Box sx={{textAlign:'center'  ,padding:'10px'}}>
-              <h4>Register</h4>
+                <Link to={'/register'}>
+                <h4>Register</h4>
+                </Link>
               </Box>
             </Card>
         </Box>
