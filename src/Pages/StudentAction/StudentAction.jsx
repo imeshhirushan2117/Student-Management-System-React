@@ -11,6 +11,7 @@ import { useState } from 'react';
 import instance from '../../services/Axious'
 import { AlertComponent } from '../../common/Aleart/Aleare';
 
+
 export default function StudentAction() {
   const [name, setName] = useState("")
   const [age, setAge] = useState("")
@@ -35,20 +36,20 @@ export default function StudentAction() {
       });
   }
 
-  const update = () => {
-    instance.put('/update/160', {
-      student_name: name,
-      student_age: age,
-      student_address: address,
-      student_contact: contact
-    })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
+  // const update = () => {
+  //   instance.put('/update/160', {
+  //     student_name: name,
+  //     student_age: age,
+  //     student_address: address,
+  //     student_contact: contact
+  //   })
+  //     .then((response) => {
+  //       console.log(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }
 
   const deleted = () => {
     console.log("deleted");
@@ -92,13 +93,13 @@ export default function StudentAction() {
           <Button name={'Save'} width={'100%'} color={'success'} onClick={() => save()} />
         </Grid>
 
-        <Grid sx={{ marginTop: '20px' }} item xs={6}>
+        {/* <Grid sx={{ marginTop: '20px' }} item xs={6}>
           <Button name={'Update'} width={'100%'} color={'warning'} onClick={() => update()} />
         </Grid>
 
         <Grid sx={{ marginTop: '20px' }} item xs={6}>
           <Button name={'Deleted'} width={'100%'} color={'error'} onClick={() => deleted()} />
-        </Grid>
+        </Grid> */}
 
         <Grid sx={{ marginTop: '20px' }} item xs={6}>
           <Button name={'Clear'} width={'100%'} color={'info'} onClick={() => clear()} />

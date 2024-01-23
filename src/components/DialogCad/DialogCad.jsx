@@ -7,18 +7,39 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Slide from '@mui/material/Slide';
-import {Routes, Route, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
-
+import instance from '../../services/Axious'
+import {AlertComponent} from '../../common/Aleart/Aleare'; 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DialogCad({ open, handleClose, children}) {
+export default function DialogCad({ open, handleClose, children, id }) {
 
-  const [popup , setPopup] = useState(true)
-  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [address, setAddress] = useState("");
+  const [contact, setContact] = useState("");
+
+  const update = () => { 
+    console.log(id)
+    instance.put('/student/update/'+id, {
+      student_name: name,
+      student_age: age,
+      student_address: address,
+      student_contact: contact
+    })
+      .then((response) => {
+        AlertComponent('success','Success...', 'Student Update Success!')
+        console.log(response.data);
+       
+      })
+      .catch((error) => {
+        AlertComponent('error','Oops...', 'Something went wrong!')
+        console.error(error);
+      });
+  }
 
   return (
     <Dialog
@@ -34,27 +55,27 @@ export default function DialogCad({ open, handleClose, children}) {
         <Grid container spacing={3}>
 
           <Grid item xs={6}>
-            <TextField lable={'Name'} width={'100%'} />
+            <TextField lable={'Name'} value={name} width={'100%'} onChange={(val) => setName(val.target.value)} />
           </Grid>
 
           <Grid item xs={6}>
-            <TextField lable={'Age'} width={'100%'} />
+            <TextField lable={'Age'} value={age} width={'100%'} onChange={(val) => setAge(val.target.value)} />
           </Grid>
 
           <Grid item xs={6}>
-            <TextField lable={'Address'} width={'100%'} />
+            <TextField lable={'Address'} value={address} width={'100%'} onChange={(val) => setAddress(val.target.value)} />
           </Grid>
 
           <Grid item xs={6}>
-            <TextField lable={'Contact'} width={'100%'} />
+            <TextField lable={'Contact'} value={contact} width={'100%'} onChange={(val) => setContact(val.target.value)} />
           </Grid>
 
           <Grid item xs={6}>
-            <Button name={'Update'} width={'100%'} color={'success'} />
+            <Button name={'Update'} width={'100%'} color={'success'} onClick={() => update()} />
           </Grid>
 
           <Grid item xs={6}>
-            <Button name={'Exit'} width={'100%'} color={'error'}  onClick={handleClose}/>
+            <Button name={'Exit'} width={'100%'} color={'error'} onClick={handleClose} />
           </Grid>
 
         </Grid>
