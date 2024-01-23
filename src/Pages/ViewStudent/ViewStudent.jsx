@@ -5,19 +5,25 @@ import { useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import DialogCad from '../../components/DialogCad/DialogCad'
 
 
+export default function ViewStudent() {
+
+  const [data, setData] = useState([])
+  const [popup, setPopup] = useState(false)
 
 const handleDelete =() => {
-  console.log("deleted");
+  
 }
 
-const handleEdit =() => {
-  console.log("edit");
+const openPopup = () => {
+setPopup(true)
 }
 
-
-
+const closePopup = () => {
+  setPopup(false)
+}
 
 
 const columns = [
@@ -35,7 +41,7 @@ const columns = [
         <IconButton
         color='info'
           aria-label="edit"
-          onClick={() => handleEdit(params.row.id)}
+           onClick={openPopup}
         >
           <EditIcon />
         </IconButton>
@@ -51,10 +57,6 @@ const columns = [
   },
 
 ];
-
-export default function ViewStudent() {
-
-  const [data, setData] = useState([])
 
   useEffect(() => {
     instance({
@@ -88,9 +90,7 @@ export default function ViewStudent() {
         pageSizeOptions={[5, 10]}
         checkboxSelection
       />
-
-
-
+     <DialogCad open={popup} handleClose={closePopup} />
     </div>
   )
 }
