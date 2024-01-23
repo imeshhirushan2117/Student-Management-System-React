@@ -133,7 +133,7 @@ export default function DashBoard() {
           <Typography variant="h6" noWrap component="div">
             Welcome to the Student Registration System!
           </Typography>
-          <Box sx={{ marginLeft: '600px' }}>
+          <Box sx={{display:'flex', flexGrow:1 , justifyContent:'end'}}>
             <Button name={'log Out'} color={'error'} width={'200px'}  onClick={logOutAction}/>
           </Box>
         </Toolbar>

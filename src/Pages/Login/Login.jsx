@@ -36,7 +36,7 @@ export default function Login() {
 
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '200px' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
       <Card>
         <CardContent>
           <Typography gutterBottom variant="h4" component="div" sx={{ textAlign: 'center' }}>
@@ -49,7 +49,7 @@ export default function Login() {
         </Box>
 
         <CardActions>
-          <TextFeeld lable={'Email'} width={'500px'} onChange={(val) => setEmail(val.target.value)} />
+          <TextFeeld lable={'Email'} width={'500px'} type={email} onChange={(val) => setEmail(val.target.value)} />
         </CardActions>
 
         <CardActions>

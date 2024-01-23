@@ -11,8 +11,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import instance from '../../services/Axious'
-import Aleare from '../../common/Aleart/Aleare';
-import Swal from 'sweetalert2';
+import {AlertComponent} from '../../common/Aleart/Aleare';
 
 export default function Register() {
 
@@ -29,30 +28,18 @@ export default function Register() {
     })
     .then(function (response) {
       console.log(response);
-      // <Aleare icon='success' title='success...' text='User Register Success!'/>
-
-      Swal.fire({
-        icon: "success",
-        title: "Success...",
-        text: "User Register Success!",
-        footer: '<a href="#">Why do I have this issue?</a>'
-      });
-      clear()
+      AlertComponent('success','Success...', 'User Register Success!')
+      console.log('hi Success')
     })
     .catch(function (error) {
+      AlertComponent('error','Oops...', 'Something went wrong!')
       console.log(error);
-      <Aleare icon='error' title='Oops...' text='Something went wrong!'/>
+      console.log('hi error')
     });
   }
 
-    
-  const clear = () => {
-    name(""),
-    email(""),
-    password("")
-}
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '200px' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
       <Card>
         <CardContent>
           <Typography gutterBottom variant="h4" component="div" sx={{ textAlign: 'center' }}>
@@ -69,7 +56,7 @@ export default function Register() {
         </CardActions>
 
         <CardActions>
-          <TextFeeld lable={'Email'} width={'500px'} onChange={(val)=>setEmail(val.target.value)}/>
+          <TextFeeld lable={'Email'} width={'500px'} type={email} onChange={(val)=>setEmail(val.target.value)}/>
         </CardActions>
 
         <CardActions>
