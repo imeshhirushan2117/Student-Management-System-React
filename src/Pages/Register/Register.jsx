@@ -29,13 +29,18 @@ export default function Register() {
     .then(function (response) {
       console.log(response);
       AlertComponent('success','Success...', 'User Register Success!')
-      console.log('hi Success')
+      clearText();
     })
     .catch(function (error) {
       AlertComponent('error','Oops...', 'Something went wrong!')
       console.log(error);
-      console.log('hi error')
     });
+  }
+
+  const clearText = () => {
+      setName("");
+      setEmail("");
+      setPassword("");
   }
 
   return (
@@ -52,15 +57,15 @@ export default function Register() {
         </Box>
 
         <CardActions>
-          <TextFeeld lable={'Name'} width={'500px'} onChange={(val)=>setName(val.target.value)} />
+          <TextFeeld value={name} lable={'Name'} width={'500px'} onChange={(val)=>setName(val.target.value)} />
         </CardActions>
 
         <CardActions>
-          <TextFeeld lable={'Email'} width={'500px'} type={email} onChange={(val)=>setEmail(val.target.value)}/>
+          <TextFeeld value={email}  lable={'Email'} width={'500px'} type={email} onChange={(val)=>setEmail(val.target.value)}/>
         </CardActions>
 
         <CardActions>
-          <TextFeeld type={'password'} lable={'Password'} width={'500px'} onChange={(val)=>setPassword(val.target.value)}/>
+          <TextFeeld value={password}  type={'password'} lable={'Password'} width={'500px'} onChange={(val)=>setPassword(val.target.value)}/>
         </CardActions>
 
         <CardActions sx={{ marginTop: '20px' }}>

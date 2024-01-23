@@ -11,7 +11,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 import instance from '../../services/Axious'
 import { useState } from 'react';
-
+import {AlertComponent} from '../../common/Aleart/Aleare'; 
 
 
 export default function Login() {
@@ -27,6 +27,7 @@ export default function Login() {
         console.log(response.data.token);
         localStorage.setItem('stmToken', response.data.token)
         window.location.reload()
+        AlertComponent('success','Success...', 'User Login Success!')
       })
       .catch(function (error) {
         console.log(error);
