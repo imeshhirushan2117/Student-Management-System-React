@@ -29,6 +29,7 @@ export default function Register() {
     .then(function (response) {
       console.log(response);
       AlertComponent('success','Success...', 'User Register Success!')
+    
       clearText();
     })
     .catch(function (error) {

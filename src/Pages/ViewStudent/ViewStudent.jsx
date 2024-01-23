@@ -20,7 +20,7 @@ export default function ViewStudent() {
       .then(response => {
         console.log(response)
         AlertComponent('success','Success...', 'Student Deleted Success!')
-       
+        window.location.reload()
       })
       .catch(error => {
         console.error(error);
@@ -37,11 +37,6 @@ export default function ViewStudent() {
   const closePopup = () => {
     setPopup(false)
   }
-
-  const update = () => {
-
-  }
-
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 100 },

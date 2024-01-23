@@ -36,21 +36,6 @@ export default function StudentAction() {
       });
   }
 
-  // const update = () => {
-  //   instance.put('/update/160', {
-  //     student_name: name,
-  //     student_age: age,
-  //     student_address: address,
-  //     student_contact: contact
-  //   })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }
-
   const deleted = () => {
     console.log("deleted");
   }

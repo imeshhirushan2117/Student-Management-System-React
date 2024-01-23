@@ -16,7 +16,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function DialogCad({ open, handleClose, children, id }) {
-
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [address, setAddress] = useState("");
@@ -32,6 +31,7 @@ export default function DialogCad({ open, handleClose, children, id }) {
     })
       .then((response) => {
         AlertComponent('success','Success...', 'Student Update Success!')
+        window.location.reload()
         console.log(response.data);
        
       })
