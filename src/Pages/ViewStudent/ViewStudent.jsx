@@ -19,8 +19,9 @@ export default function ViewStudent() {
     instance.delete('/student/delete/'+id)
       .then(response => {
         console.log(response)
-        AlertComponent('success','Success...', 'Student Deleted Success!')
-        window.location.reload()
+        fetchData()
+        // AlertComponent('success','Success...', 'Student Deleted Success!')
+        
       })
       .catch(error => {
         console.error(error);
@@ -28,6 +29,13 @@ export default function ViewStudent() {
       });
       
   }
+
+  const changeUpdate = () => {
+    fetchData()
+    closePopup()
+  }
+
+
 
   const openPopup = (id) => {
     setPopup(true)
@@ -66,11 +74,12 @@ export default function ViewStudent() {
             <DeleteIcon />
           </IconButton>
         </div>
-      ),
+      ),     
     },
   ];
 
-  useEffect(() => {
+
+  const fetchData = ()=> {
     instance({
       method: 'get',
       url: '/student/getAll',
@@ -88,7 +97,12 @@ export default function ViewStudent() {
         });
         setData(array);
       });
+  }
+
+  useEffect(() => {
+    fetchData(setData)
   }, []);
+
 
 
   return (
@@ -105,7 +119,7 @@ export default function ViewStudent() {
         pageSizeOptions={[5, 10]}
         checkboxSelection
       />
-      <DialogCad open={popup} handleClose={closePopup} id={updateId}/>
+      <DialogCad open={popup} handleClose={closePopup} id={updateId} changeUpdate={()=>changeUpdate()}/>
     </div>
   )
 }

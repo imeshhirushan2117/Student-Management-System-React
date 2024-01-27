@@ -10,19 +10,19 @@ import Slide from '@mui/material/Slide';
 import { useState } from 'react';
 import instance from '../../services/Axious'
 import {AlertComponent} from '../../common/Aleart/Aleare'; 
+import ViewStudent from '../../Pages/ViewStudent/ViewStudent';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DialogCad({ open, handleClose, children, id }) {
+export default function DialogCad({ open, handleClose, children, id , changeUpdate}) {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState("");
 
   const update = () => { 
-    console.log(id)
     instance.put('/student/update/'+id, {
       student_name: name,
       student_age: age,
@@ -30,10 +30,8 @@ export default function DialogCad({ open, handleClose, children, id }) {
       student_contact: contact
     })
       .then((response) => {
-        AlertComponent('success','Success...', 'Student Update Success!')
-        window.location.reload()
-        console.log(response.data);
-       
+        changeUpdate()
+          AlertComponent('success','Success...', 'Student Update Success!')
       })
       .catch((error) => {
         AlertComponent('error','Oops...', 'Something went wrong!')
