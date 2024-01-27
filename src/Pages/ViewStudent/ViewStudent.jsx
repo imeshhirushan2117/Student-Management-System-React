@@ -20,7 +20,7 @@ export default function ViewStudent() {
       .then(response => {
         console.log(response)
         fetchData()
-        // AlertComponent('success','Success...', 'Student Deleted Success!')
+         AlertComponent('success','Success...', 'Student Deleted Success!')
         
       })
       .catch(error => {

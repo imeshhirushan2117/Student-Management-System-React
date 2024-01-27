@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Slide from '@mui/material/Slide';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import instance from '../../services/Axious'
 import {AlertComponent} from '../../common/Aleart/Aleare'; 
 import ViewStudent from '../../Pages/ViewStudent/ViewStudent';
@@ -38,7 +38,6 @@ export default function DialogCad({ open, handleClose, children, id , changeUpda
         console.error(error);
       });
   }
-
   return (
     <Dialog
       open={open}
