@@ -13,7 +13,7 @@ export default function ViewStudent() {
 
   const [data, setData] = useState([])
   const [popup, setPopup] = useState(false);
-  const [updateId, setUpdateId] = useState()
+  const [updateData, setUpdateData] = useState()
 
   const handleDelete = (id) => {
     instance.delete('/student/delete/'+id)
@@ -21,13 +21,11 @@ export default function ViewStudent() {
         console.log(response)
         fetchData()
          AlertComponent('success','Success...', 'Student Deleted Success!')
-        
       })
       .catch(error => {
         console.error(error);
           AlertComponent('error','Oops...', 'Something went wrong!')
-      });
-      
+      });   
   }
 
   const changeUpdate = () => {
@@ -35,11 +33,9 @@ export default function ViewStudent() {
     closePopup()
   }
 
-
-
-  const openPopup = (id) => {
+  const openPopup = (val) => {
     setPopup(true)
-    setUpdateId(id)
+    setUpdateData(val)
   }
 
   const closePopup = () => {
@@ -62,7 +58,7 @@ export default function ViewStudent() {
             color='info'
             aria-label="edit"
             // onClick={openPopup}
-            onClick={() => {openPopup(params.row.id)}}
+            onClick={() => {openPopup(params.row)}}
           >
           <EditIcon />
           </IconButton>
@@ -76,6 +72,7 @@ export default function ViewStudent() {
         </div>
       ),     
     },
+    
   ];
 
 
@@ -104,7 +101,6 @@ export default function ViewStudent() {
   }, []);
 
 
-
   return (
     <div style={{ height: 500, width: '100%' }}>
 
@@ -119,7 +115,9 @@ export default function ViewStudent() {
         pageSizeOptions={[5, 10]}
         checkboxSelection
       />
-      <DialogCad open={popup} handleClose={closePopup} id={updateId} changeUpdate={()=>changeUpdate()}/>
+      {popup && 
+      <DialogCad open={popup} handleClose={closePopup} updateData={updateData} changeUpdate={()=>changeUpdate()}/>
+      }
     </div>
   )
 }

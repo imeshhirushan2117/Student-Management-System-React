@@ -16,19 +16,23 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DialogCad({ open, handleClose, children, id , changeUpdate}) {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [address, setAddress] = useState("");
-  const [contact, setContact] = useState("");
+export default function DialogCad({ open, handleClose, children, updateData , changeUpdate}) {
+  console.log(updateData);
+  const [name, setName] = useState(updateData?.name);
+  const [age, setAge] = useState(updateData?.age);
+  const [address, setAddress] = useState(updateData?.address);
+  const [contact, setContact] = useState(updateData?.contact);
+
 
   const update = () => { 
-    instance.put('/student/update/'+id, {
+    instance.put('/student/update/'+updateData.id, {
       student_name: name,
       student_age: age,
       student_address: address,
       student_contact: contact
     })
+
+
       .then((response) => {
         changeUpdate()
           AlertComponent('success','Success...', 'Student Update Success!')
@@ -38,6 +42,27 @@ export default function DialogCad({ open, handleClose, children, id , changeUpda
         console.error(error);
       });
   }
+
+  // const loadData = () => {
+  //   instance.put('/student/update/'+id,)
+  //     .then((response) => {
+  //        const { student_name, student_age, student_address, student_contact } = response.data;
+  //       // setName(student_name);
+  //       // setAge(student_age);
+  //       // setAddress(student_address);
+  //       // setContact(student_contact);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   if (open) {
+  //     loadData();
+  //   }
+  // }, [open, id]);
+
   return (
     <Dialog
       open={open}
@@ -77,8 +102,7 @@ export default function DialogCad({ open, handleClose, children, id , changeUpda
 
         </Grid>
       </Box>
-
-
+      
     </Dialog>
 
   );
