@@ -14,6 +14,7 @@ export default function ViewStudent() {
   const [data, setData] = useState([])
   const [popup, setPopup] = useState(false);
   const [updateData, setUpdateData] = useState()
+  
 
   const handleDelete = (id) => {
     instance.delete('/student/delete/'+id)

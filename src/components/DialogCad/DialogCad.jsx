@@ -23,7 +23,6 @@ export default function DialogCad({ open, handleClose, children, updateData , ch
   const [address, setAddress] = useState(updateData?.address);
   const [contact, setContact] = useState(updateData?.contact);
 
-
   const update = () => { 
     instance.put('/student/update/'+updateData.id, {
       student_name: name,
@@ -42,26 +41,6 @@ export default function DialogCad({ open, handleClose, children, updateData , ch
         console.error(error);
       });
   }
-
-  // const loadData = () => {
-  //   instance.put('/student/update/'+id,)
-  //     .then((response) => {
-  //        const { student_name, student_age, student_address, student_contact } = response.data;
-  //       // setName(student_name);
-  //       // setAge(student_age);
-  //       // setAddress(student_address);
-  //       // setContact(student_contact);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   if (open) {
-  //     loadData();
-  //   }
-  // }, [open, id]);
 
   return (
     <Dialog

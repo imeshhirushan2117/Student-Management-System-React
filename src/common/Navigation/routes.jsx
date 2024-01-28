@@ -17,6 +17,7 @@ const routes = [
         component:<StudentAction/>,
         icon:<AccessibilityNewIcon/>
     },
+    
 ]
 
 export default routes

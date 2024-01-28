@@ -10,7 +10,7 @@ import { DeselectOutlined } from '@mui/icons-material';
 import { useState } from 'react';
 import instance from '../../services/Axious'
 import { AlertComponent } from '../../common/Aleart/Aleare';
-
+import Temp from '../../common/temp/temp';
 
 export default function StudentAction() {
   const [name, setName] = useState("")
@@ -53,7 +53,12 @@ export default function StudentAction() {
 
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }}
+    component="form"
+    noValidate
+    autoComplete="off"
+    
+    >
       <Grid container spacing={2}>
 
         <Grid item xs={6}>
@@ -73,7 +78,6 @@ export default function StudentAction() {
         </Grid>
 
 
-
         <Grid sx={{ marginTop: '20px' }} item xs={6}>
           <Button name={'Save'} width={'100%'} color={'success'} onClick={() => save()} />
         </Grid>
@@ -89,9 +93,12 @@ export default function StudentAction() {
         <Grid sx={{ marginTop: '20px' }} item xs={6}>
           <Button name={'Clear'} width={'100%'} color={'info'} onClick={() => clear()} />
         </Grid>
-
-
       </Grid>
+
+
+      {/* <Box sx={{marginTop:20}}>
+          <Temp/>
+      </Box> */}
     </Box>
   )
 }
