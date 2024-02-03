@@ -11,7 +11,6 @@ export default function validateTextFeeld({regex,lable,type,width,onChange,helpe
       const value = event.target.value;
       setInputValue(value);
       const isValidInput = regex.test(value);
-      console.log(isValidInput);
       setIsValid(!isValidInput);
       onChange(event)
     }
@@ -35,7 +34,6 @@ export default function validateTextFeeld({regex,lable,type,width,onChange,helpe
             }}
             // value={inputValue}
             // value={`${inputValue}  ${sampleValue}`}
-          
             onChange={handleInputChange}
             type={type}
             label={lable} 

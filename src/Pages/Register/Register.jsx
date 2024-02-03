@@ -63,7 +63,7 @@ export default function Register() {
 
         <CardActions>
           {/* <TextFeeld value={name} lable={'Name'} width={'500px'} onChange={(val)=>setName(val.target.value)} /> */}
-          <ValidateTextField   helperText={"John Smith"}  regex={regexName} width={'500px'} lable={'Name'} onChange={(val)=>setEmail(val.target.value)}/>
+          <ValidateTextField   helperText={"John Smith"}  regex={regexName} width={'500px'} lable={'Name'} onChange={(val)=>setName(val.target.value)}/>
         </CardActions>
 
         <CardActions>

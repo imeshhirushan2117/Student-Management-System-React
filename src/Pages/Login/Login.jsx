@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import instance from '../../services/Axious'
 import { useState } from 'react';
 import {AlertComponent} from '../../common/Aleart/Aleare'; 
-
+import ValidateTextField from '../../common/validateTextField/validateTextFeeld'
 
 export default function Login() {
   const [email, setEmail] = useState("")
@@ -34,7 +34,7 @@ export default function Login() {
       });
   }
 
-
+  const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
@@ -50,7 +50,8 @@ export default function Login() {
         </Box>
 
         <CardActions>
-          <TextFeeld lable={'Email'} width={'500px'} type={email} onChange={(val) => setEmail(val.target.value)} />
+          {/* <TextFeeld lable={'Email'} width={'500px'} type={email} onChange={(val) => setEmail(val.target.value)} /> */}
+          <ValidateTextField  helperText={"johnsmith@example.com"} regex={regexEmail} width={'500px'} lable={'Email'} onChange={(val)=>setEmail(val.target.value)}/>
         </CardActions>
 
         <CardActions>
