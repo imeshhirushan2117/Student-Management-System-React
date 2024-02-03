@@ -4,13 +4,13 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import TextField from '../../common/TextField/TextField';
+import ValidateText from '../../common/validateTextField/validateTextFeeld'
 import Button from '../../common/Button/Button';
 import { createTheme } from '@mui/material/styles';
 import { DeselectOutlined } from '@mui/icons-material';
 import { useState } from 'react';
 import instance from '../../services/Axious'
 import { AlertComponent } from '../../common/Aleart/Aleare';
-import Temp from '../../common/temp/temp';
 
 export default function StudentAction() {
   const [name, setName] = useState("")
@@ -50,6 +50,8 @@ export default function StudentAction() {
     setAddress("");
     setContact("");
   }
+
+  // const customRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 
   return (
@@ -96,8 +98,8 @@ export default function StudentAction() {
       </Grid>
 
 
-      {/* <Box sx={{marginTop:20}}>
-          <Temp/>
+      {/* <Box sx={{marginTop:10}}>
+         <ValidateText onChange={(val) => console.log(val.target.value)} regex={customRegex} width={'100%'} lable={'Email'}/>
       </Box> */}
     </Box>
   )

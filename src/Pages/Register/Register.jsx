@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import instance from '../../services/Axious'
 import {AlertComponent} from '../../common/Aleart/Aleare';
+import ValidateTextField from '../../common/validateTextField/validateTextFeeld'
 
 export default function Register() {
 
@@ -44,6 +45,9 @@ export default function Register() {
       setPassword("");
   }
 
+  const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const regexName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
+
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
       <Card>
@@ -58,11 +62,13 @@ export default function Register() {
         </Box>
 
         <CardActions>
-          <TextFeeld value={name} lable={'Name'} width={'500px'} onChange={(val)=>setName(val.target.value)} />
+          {/* <TextFeeld value={name} lable={'Name'} width={'500px'} onChange={(val)=>setName(val.target.value)} /> */}
+          <ValidateTextField   helperText={"John Smith"}  regex={regexName} width={'500px'} lable={'Name'} onChange={(val)=>setEmail(val.target.value)}/>
         </CardActions>
 
         <CardActions>
-          <TextFeeld value={email}  lable={'Email'} width={'500px'} type={email} onChange={(val)=>setEmail(val.target.value)}/>
+          {/* <TextFeeld value={email}  lable={'Email'} width={'500px'} type={email} onChange={(val)=>setEmail(val.target.value)}/> */}
+          <ValidateTextField  helperText={"johnsmith@example.com"} regex={regexEmail} width={'500px'} lable={'Email'} onChange={(val)=>setEmail(val.target.value)}/>
         </CardActions>
 
         <CardActions>

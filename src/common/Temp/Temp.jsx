@@ -4,19 +4,21 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { colors } from '@mui/material';
 
-export default function Temp() {
+export default function Temp({regex}) {
   const [inputValue, setInputValue] = useState('');
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(false);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
 
-    const regex = /^\d{10}$/;
+     const regex = (regex); 
+    // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
 
     const isValidInput = regex.test(value);
+    console.log(isValidInput);
 
-    setIsValid(isValidInput);
+    setIsValid(!isValidInput);
   }
 
   return (
@@ -29,19 +31,17 @@ export default function Temp() {
       autoComplete="off"
     >
       <div>
-        <TextField
-          
-          color="success"
+        <TextField   
+          error={isValid}
+          color='success'
           id="outlined-error-helper-text"
-          label="Number"
-          helperText={isValid ? 'Number' : 'Please enter exactly 10 numbers'}
+          label="Email"
+          helperText={isValid ? "johnsmith@example.com": ''}
           inputProps={{
             pattern: '[0-9]{10}',
           }}
           value={inputValue}
-          onChange={handleInputChange}
-
-        
+          onChange={handleInputChange}    
         />
       </div>
     </Box>
